@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:hint="Judul"
-        android:inputType="number" />
+         />
 
     <EditText
         android:id="@+id/edtIsi"

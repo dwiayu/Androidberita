@@ -1,5 +1,6 @@
 package com.example.dell.portal.Adapter;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.dell.portal.LayarEditKategori;
 import com.example.dell.portal.Model.Kategori;
 import com.example.dell.portal.R;
 
@@ -41,6 +43,16 @@ public class KategoriAdapter extends RecyclerView.Adapter<KategoriAdapter.Katego
             Glide.with(holder.itemView.getContext()).load(R.drawable.default_user).into(holder
                     .mPhotoURL);
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), LayarEditKategori.class);
+                intent.putExtra("id_kategori",listKategori.get(position).getIdKategori());
+                intent.putExtra("kategori", listKategori.get(position).getKategori());
+                intent.putExtra("photo_url",listKategori.get(position).getPhotoUrl());
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

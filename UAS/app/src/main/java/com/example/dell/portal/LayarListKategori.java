@@ -40,14 +40,15 @@ public class LayarListKategori extends Activity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(mContext);
         mRecyclerView.setLayoutManager(mLayoutManager);
+        btAddData = (Button) findViewById(R.id.btAddData);
         btGet = (Button) findViewById(R.id.btGet);
 
         btGet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mApiInterface = ApiClient.getClient().create(ApiInterface.class);
-                Call<GetKategori> mPembeliCall = mApiInterface.getKategori();
-                mPembeliCall.enqueue(new Callback<GetKategori>() {
+                Call<GetKategori> mKategoriCall = mApiInterface.getKategori();
+                mKategoriCall.enqueue(new Callback<GetKategori>() {
                     @Override
                     public void onResponse(Call<GetKategori> call, Response<GetKategori> response) {
                         Log.d("Get Kategori", response.body().getStatus());

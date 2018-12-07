@@ -26,8 +26,11 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".LayarListKategori"
-            android:label="List Pembeli"></activity>
-        <activity android:name=".LayarInsertKategori"></activity>
+            android:label="List Kategori" />
+        <activity android:name=".LayarInsertKategori"
+            android:label="Insert Kategori" />/>
+        <activity android:name=".LayarEditKategori"
+            android:label="Edit Kategori" ></activity>
     </application>
 
 </manifest>
