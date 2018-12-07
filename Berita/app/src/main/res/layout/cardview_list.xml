@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <item android:id="@+id/menuTambahBerita"
+        android:title="Tambah Trans Berita"/>
+    <item android:id="@+id/menuListKategori"
+        android:title="List Kategori"/>
+    <item android:id="@+id/menuInsertDataKategori"
+        android:title="Insert Data Kategori"/>
+
+</menu>
