@@ -2,46 +2,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+
     android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/tvJudul"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Judul Berita"
-        android:layout_alignParentEnd="true"
-        android:textStyle="bold"
-        android:layout_alignParentRight="true" />
-    <TextView
-        android:id="@+id/tvIdBerita"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Id Berita"
-        android:layout_below="@id/tvJudul"
-        />
-    <TextView
-        android:id="@+id/tvIdSumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Id Sumber"
-        android:layout_below="@id/tvIdBerita"
-        />
-    <TextView
-        android:id="@+id/tvIdKategori"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Total Harga"
-        android:layout_below="@id/tvIdSumber"
-        />
-    <TextView
-        android:id="@+id/tvIsi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Total Harga"
-        android:layout_below="@id/tvIdKategori"
-        />
+        android:background="@android:color/holo_orange_light">
+
+        <TextView
+            android:id="@+id/tvJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:hint="Judul Berita"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvIdBerita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvJudul"
+            android:hint="Id Berita" />
+
+        <TextView
+            android:id="@+id/tvIdSumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvIdBerita"
+            android:hint="Id Sumber" />
+
+        <TextView
+            android:id="@+id/tvIdKategori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvIdSumber"
+            android:hint="Total Harga" />
+
+        <TextView
+            android:id="@+id/tvIsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvIdKategori"
+            android:hint="Total Harga" />
     </RelativeLayout>
     <View
         android:background="@color/colorPrimary"

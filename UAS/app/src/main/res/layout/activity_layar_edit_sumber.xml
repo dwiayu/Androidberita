@@ -4,76 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_post_put_del_kategori"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/bg"
-    android:scrollbars="vertical"
-    tools:context=".LayarEditKategori">
-
+    tools:context=".LayarEditSumber">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp">
 
-        <ImageView
-            android:id="@+id/imgPhotoUrl"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/default_user"/>
-
-        <Button
-            android:id="@+id/btPhotoId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imgPhotoUrl"
-            android:layout_centerHorizontal="true"
-            android:text="Select Photo Id"/>
 
         <TextView
-            android:id="@+id/tvIdKategori"
+            android:id="@+id/tvIdSumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btPhotoId"
             android:layout_marginTop="10dp"
-            android:text="Id Kategori :"
+            android:text="Id Sumber :"
             android:textSize="20dp"/>
 
         <EditText
-            android:id="@+id/edtIdKategori"
+            android:id="@+id/edtIdSumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/tvIdKategori"
-            android:layout_toRightOf="@+id/tvIdKategori"
-            android:hint="id_kategori"
-            android:enabled="false"/>
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/edtAddNama"
+            android:enabled="false"
+            android:hint="id_sumber" />
 
         <TextView
             android:id="@+id/tvNama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvIdKategori"
-            android:text="Nama Kategori :"
+            android:layout_below="@+id/tvIdSumber"
+            android:text="Nama Sumber :"
             android:textSize="20dp"/>
 
         <EditText
             android:id="@+id/edtAddNama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvNama"
-            android:layout_alignEnd="@+id/imgPhotoUrl"
-            android:hint="Kategori"
-            android:layout_alignRight="@+id/imgPhotoUrl" />
+            android:layout_alignBaseline="@+id/tvNama"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:hint="nama sumber"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40dp" />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/tvPj"
+    android:hint="PJ Sumber :"
+    android:layout_below="@+id/tvNama"
+    />
 
+        <EditText
+            android:id="@+id/edtAddPj"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+        android:layout_below="@+id/edtAddNama"
+            android:layout_alignBaseline="@+id/tvPj"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:hint="PJ"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40dp" />
 
         <LinearLayout
             android:id="@+id/LinearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvNama"
+            android:layout_below="@+id/edtAddPj"
             android:layout_centerHorizontal="true"
             android:orientation="horizontal"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_marginBottom="5dp"
+            >
 
             <Button
                 android:id="@+id/btUpdate"
@@ -93,14 +97,16 @@
                 android:layout_height="wrap_content"
                 android:text="Back"/>
         </LinearLayout>
+
         <TextView
             android:id="@+id/tvMessage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Pesan"
+            android:layout_height="27dp"
             android:layout_alignParentBottom="true"
             android:layout_below="@+id/LinearLayout"
-            android:textSize="20dp"
-            android:inputType="textMultiLine"/>
+            android:layout_marginBottom="0dp"
+            android:hint="Pesan"
+            android:inputType="textMultiLine"
+            android:textSize="20dp" />
     </RelativeLayout>
 </ScrollView>

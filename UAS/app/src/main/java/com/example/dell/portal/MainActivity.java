@@ -89,7 +89,14 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, LayarInsertKategori.class);
                 startActivity(intent);
                 return true;
-
+            case R.id.menuListSumber:
+                mIntent = new Intent(this, LayarListSumber.class);
+                startActivity(mIntent);
+                return true;
+            case R.id.menuInsertDataSumber:
+                mIntent = new Intent(this, LayarInsertSumber.class);
+                startActivity(mIntent);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

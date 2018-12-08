@@ -6,7 +6,10 @@
         android:title="List Kategori"/>
     <item android:id="@+id/menuInsertDataKategori"
         android:title="Insert Data Kategori"/>
-
+    <item android:id="@+id/menuListSumber"
+        android:title="List Sumber"/>
+    <item android:id="@+id/menuInsertDataSumber"
+        android:title="Insert Data Sumber"/>
 
 
 </menu>

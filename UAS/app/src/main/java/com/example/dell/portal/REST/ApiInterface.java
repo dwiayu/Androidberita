@@ -2,6 +2,7 @@ package com.example.dell.portal.REST;
 
 import com.example.dell.portal.Model.GetBerita;
 import com.example.dell.portal.Model.GetKategori;
+import com.example.dell.portal.Model.GetSumber;
 import com.example.dell.portal.Model.PostPutDellBerita;
 
 import okhttp3.MultipartBody;
@@ -67,5 +68,32 @@ public interface ApiInterface {
             @Part("id_kategori") RequestBody idKategori,
             @Part("action") RequestBody action);
 
+//SUMBER
+@GET("index.php/sumber/all")
+Call<GetSumber> getSumber();
 
+    @Multipart
+    @POST("index.php/sumber/all")
+    Call<GetSumber> postSumber(
+            @Part MultipartBody.Part file,
+            @Part("nama_sumber") RequestBody namaSumber,
+            @Part("pj_sumber") RequestBody pjSumber,
+            @Part("action") RequestBody action
+    );
+
+    @Multipart
+    @POST("index.php/sumber/all")
+    Call<GetSumber> putSumber(
+            @Part MultipartBody.Part file,
+            @Part("id_sumber") RequestBody idSumber,
+            @Part("nama_sumber") RequestBody namaSumber,
+            @Part ("pj_sumber") RequestBody pjSumber,
+            @Part("action") RequestBody action
+    );
+
+    @Multipart
+    @POST("index.php/sumber/all")
+    Call<GetSumber> deleteSumber(
+            @Part("id_sumber") RequestBody idSumber,
+            @Part("action") RequestBody action);
 }
