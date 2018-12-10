@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity {
         this.login();
     }
     private boolean checkCredentials(String username, String password) {
-        if(username.equals("admin") && password.equals(("admin")))
+        if(username.equals("dwi") && password.equals(("user")))
             return true;
         else
             return false;
