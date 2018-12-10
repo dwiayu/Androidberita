@@ -3,6 +3,8 @@ package com.example.dell.uasuser.Model;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
+    @SerializedName("id_user")
+    private String idUser;
     @SerializedName("nama")
     private String nama;
     @SerializedName("alamat")
@@ -14,11 +16,20 @@ public class User {
     @SerializedName("action")
     private String action;
 
-    public User(String nama, String alamat, String email, String photoUrl, String action){
+    public User(String idUser,String nama, String alamat, String email, String photoUrl, String action){
+        this.idUser=idUser;
         this.nama=nama;
         this.alamat= alamat;
         this.email= email;
         this.photoUrl=photoUrl;
+    }
+
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
     }
 
     public String getNama() {

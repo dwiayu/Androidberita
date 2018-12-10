@@ -14,6 +14,7 @@ import com.example.dell.uasuser.LayarEditUser;
 import com.example.dell.uasuser.Model.Kategori;
 import com.example.dell.uasuser.Model.User;
 import com.example.dell.uasuser.R;
+import com.example.dell.uasuser.REST.ApiClient;
 
 import java.util.List;
 
@@ -33,10 +34,12 @@ public class UserAdapter extends  RecyclerView.Adapter<UserAdapter.UserViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, final int position) {
+        holder.tvIdUser.setText(listUser.get(position).getIdUser());
         holder.tvNama.setText(listUser.get(position).getNama());
         holder.tvAlamat.setText(listUser.get(position).getAlamat());
         holder.tvEmail.setText(listUser.get(position).getEmail());
         if (listUser.get(position).getPhotoUrl() != null ){
+
 
             Glide.with(holder.itemView.getContext()).load(listUser.get
                     (position).getPhotoUrl())
@@ -50,6 +53,7 @@ public class UserAdapter extends  RecyclerView.Adapter<UserAdapter.UserViewHolde
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(view.getContext(), LayarEditUser.class);
+                in.putExtra("id_user",listUser.get(position).getIdUser());
                 in.putExtra("nama",listUser.get(position).getNama());
                 in.putExtra("alamat",listUser.get(position).getAlamat());
                 in.putExtra("email",listUser.get(position).getEmail());
@@ -66,10 +70,11 @@ public class UserAdapter extends  RecyclerView.Adapter<UserAdapter.UserViewHolde
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
         ImageView mPhotoURL;
-        TextView tvNama,tvAlamat,tvEmail;
+        TextView tvNama,tvAlamat,tvEmail, tvIdUser;
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             mPhotoURL = (ImageView) itemView.findViewById(R.id.imgUser);
+            tvIdUser=(TextView) itemView.findViewById(R.id.tvIdUser);
             tvNama = (TextView) itemView.findViewById(R.id.tvNama);
             tvAlamat = (TextView) itemView.findViewById(R.id.tvAlamat);
             tvEmail = (TextView) itemView.findViewById(R.id.tvEmail);

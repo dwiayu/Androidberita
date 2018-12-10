@@ -25,7 +25,21 @@
         android:layout_below="@+id/imgPhotoId"
         android:layout_centerHorizontal="true"
         android:text="Select Photo Id"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvIdUser"
+            android:text="ID : "
+            />
 
+        <EditText
+            android:id="@+id/edtIdUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/tvEmail"
+            android:layout_alignParentTop="true"
+            android:enabled="false"
+            android:layout_alignRight="@+id/tvEmail" />
     <TextView
         android:id="@+id/tvNama"
         android:layout_width="wrap_content"

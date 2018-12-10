@@ -49,7 +49,7 @@ import retrofit2.Response;
 
 public class LayarEditUser extends AppCompatActivity {
     ImageView mPhotoUrl;
-    EditText edtNama, edtAlamat, edtEmail;
+    EditText edtNama, edtAlamat, edtEmail,edtIdUser;
     TextView tvMessage;
     Context mContext;
     Button btUpdate, btBack, btPhotoUrl;
@@ -61,6 +61,7 @@ public class LayarEditUser extends AppCompatActivity {
         setContentView(R.layout.activity_layar_edit_user);
         mContext = getApplicationContext();
         mPhotoUrl = (ImageView) findViewById(R.id.imgPhotoId);
+        edtIdUser=(EditText) findViewById(R.id.edtIdUser);
         edtNama = (EditText) findViewById(R.id.edtNama);
         edtAlamat = (EditText) findViewById(R.id.edtAlamat);
         edtEmail = (EditText) findViewById(R.id.edtEmail);
@@ -72,6 +73,7 @@ public class LayarEditUser extends AppCompatActivity {
         btPhotoUrl = (Button) findViewById(R.id.btPhotoId);
         Intent mIntent = getIntent();
 
+        edtIdUser.setText(mIntent.getStringExtra("id_user"));
         edtNama.setText(mIntent.getStringExtra("nama"));
         edtAlamat.setText(mIntent.getStringExtra("alamat"));
         edtEmail.setText(mIntent.getStringExtra("email"));
@@ -92,16 +94,27 @@ public class LayarEditUser extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 MultipartBody.Part body = null;
-                if ((pathImage.length() > 0)) {
+                //dicek apakah image sama dengan yang ada di server atau berubah
+                //jika sama dikirim lagi jika berbeda akan dikirim ke server
+                if ((!pathImage.contains("uploads/" + edtIdUser.getText().toString())) &&
+                        (pathImage.length() > 0)) {
                     //File creating from selected URL
                     File file = new File(pathImage);
+
                     // create RequestBody instance from file
                     RequestBody requestFile = RequestBody.create(
                             MediaType.parse("multipart/form-data"), file);
-// MultipartBody.Part is used to send also the actual file name
+
+                    // MultipartBody.Part is used to send also the actual file name
                     body = MultipartBody.Part.createFormData("photo_url", file.getName(),
                             requestFile);
                 }
+                RequestBody reqIdUser =
+                        MultipartBody.create(MediaType.parse("multipart/form-data"),
+                                (edtIdUser
+                                        .getText().toString().isEmpty()) ?
+                                        "" : edtIdUser.getText().toString());
+
                 RequestBody reqNama =
                         MultipartBody.create(MediaType.parse("multipart/form-data"),
                                 (edtNama.getText().toString().isEmpty()) ?
@@ -116,27 +129,28 @@ public class LayarEditUser extends AppCompatActivity {
                                         "" : edtEmail.getText().toString());
                 RequestBody reqAction =
                         MultipartBody.create(MediaType.parse("multipart/form-data"), "update");
-                Call<GetUser> callUpdate = mApiInterface.putUser(body, reqNama, reqAlamat, reqEmail, reqAction);
+                Call<GetUser> callUpdate = mApiInterface.putUser(body,reqIdUser,reqNama,reqAlamat,reqEmail,
+                        reqAction);
                 callUpdate.enqueue(new Callback<GetUser>() {
                     @Override
                     public void onResponse(Call<GetUser> call, Response<GetUser> response) {
+                        //Log.d("Update Retrofit ", response.body().getStatus());
                         if (response.body().getStatus().equals("failed")) {
                             tvMessage.setText("Retrofit Update \n Status = " + response.body()
                                     .getStatus() + "\n" +
                                     "Message = " + response.body().getMessage() + "\n");
                         } else {
                             String detail = "\n" +
+                                    "id_user = " + response.body().getResult().get(0).getIdUser() + "\n" +
                                     "nama = " + response.body().getResult().get(0).getNama() + "\n" +
-                                    "alamat = " + response.body().getResult().get(0).getAlamat() + "\n" +
-                                    "email = " + response.body().getResult().get(0).getEmail() + "\n" +
+                                    "alamat =" +response.body().getResult().get(0).getAlamat()+"\n"+
+                                    "email = "+response.body().getResult().get(0).getEmail()+"\n"+
                                     "photo_url = " + response.body().getResult().get(0).getPhotoUrl()
                                     + "\n";
                             tvMessage.setText("Retrofit Update \n Status = " + response.body().getStatus() + "\n" +
                                     "Message = " + response.body().getMessage() + detail);
                         }
-                    }
-
-                    @Override
+                    }       @Override
                     public void onFailure(Call<GetUser> call, Throwable t) {
                         //Log.d("Update Retrofit ", t.getMessage());
                         tvMessage.setText("Retrofit Update \n Status = " + t.getMessage());
@@ -340,4 +354,5 @@ public class LayarEditUser extends AppCompatActivity {
         }
         return "";
     }
+
 }

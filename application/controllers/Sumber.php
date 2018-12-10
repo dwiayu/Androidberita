@@ -57,7 +57,7 @@ require APPPATH . 'libraries/Format.php';
         function insertSumber($data_sumber){
             
                     // Cek validasi
-                    if (empty($data_sumber['id_sumber'])){
+                    if (empty($data_sumber['nama_sumber'])){
                         $this->response(
                             array(
                                 "status" => "failed",

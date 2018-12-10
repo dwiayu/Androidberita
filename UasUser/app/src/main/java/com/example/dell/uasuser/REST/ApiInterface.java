@@ -22,6 +22,7 @@ public interface ApiInterface {
     @POST("index.php/userp/all")
     Call<GetUser> putUser(
             @Part MultipartBody.Part file,
+            @Part("id_user") RequestBody idUser,
             @Part("nama") RequestBody nama,
             @Part("alamat") RequestBody alamat,
             @Part("email") RequestBody email,
