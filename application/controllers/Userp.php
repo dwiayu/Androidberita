@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // Jika ada pesan "REST_Controller not found"
 require APPPATH . '/libraries/REST_Controller.php';
-require APPPATH . 'libraries/Format.php';
+require APPPATH . '/libraries/Format.php';
 
     class Userp extends REST_Controller{
         private $folder_upload='uploads/';
@@ -139,7 +139,7 @@ require APPPATH . 'libraries/Format.php';
                                             $config['allowed_types'] = 'jpg|png';
                                 
                                             // Load library upload & helper
-                                            $this->load->library('uploads', $config);
+                                            $this->load->library('upload', $config);
                                             $this->load->helper('url');
                                 
                                             // Apakah file berhasil diupload?
